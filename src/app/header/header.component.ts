@@ -9,8 +9,8 @@ import { Crumbs } from '../crumbs';
 })
 export class HeaderComponent implements OnInit {
 
-  private websiteTitle:string = "JBHS CIBL Team 2017-2018";
-  private crumbs:Crumbs[];
+  public websiteTitle:string = "JBHS CIBL Team 2017-2018";
+  public crumbs:Crumbs[];
   
   constructor(private titleService: TitleService) {}
 
