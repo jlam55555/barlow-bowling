@@ -5,6 +5,13 @@ import { Bowler } from './bowler';
 @Injectable()
 export class DataService {
 
+  // sort bowlers
+  constructor() {
+    bowlers.sort((bowler1, bowler2) => 
+      bowler1.name.split(' ').slice(-1)[0].localeCompare(bowler2.name.split(' ').slice(-1)[0])
+    );
+  }
+  
   // return a list of bowlers
   getBowlers(): Bowler[] {
     return bowlers;

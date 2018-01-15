@@ -1,6 +1,3 @@
-* {
-  box-sizing: border-box;
-}
 a {
   color: inherit;
   font-family: inherit;
@@ -9,4 +6,7 @@ a {
 html, body {
   margin: 0;
   padding: 0;
+}
+#content {
+  padding: 2em;
 }

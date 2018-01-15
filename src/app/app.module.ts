@@ -8,7 +8,8 @@ import { BowlerDetailComponent } from './bowler-detail/bowler-detail.component';
 import { AboutComponent } from './about/about.component';
 import { AppRouterModule } from './app-router/app-router.module';
 
-import { DataService } from './data.service'
+import { DataService } from './data.service';
+import { TitleService } from './title.service'
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DataService } from './data.service'
     AppRouterModule
   ],
   providers: [
-    DataService
+    DataService,
+    TitleService
   ],
   bootstrap: [AppComponent]
 })

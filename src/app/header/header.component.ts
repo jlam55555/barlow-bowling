@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from '../title.service';
+import { Crumbs } from '../crumbs';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  page:string = "Barlow Bowling";
+  private websiteTitle:string = "JBHS CIBL Team 2017-2018";
+  private crumbs:Crumbs[];
   
-  constructor() { }
+  constructor(private titleService: TitleService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.titleService.getCrumbs().subscribe(crumbs => this.crumbs = crumbs);
   }
 
 }
