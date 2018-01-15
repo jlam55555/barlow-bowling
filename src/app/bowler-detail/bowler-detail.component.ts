@@ -6,7 +6,7 @@ import { Bowler } from '../bowler';
 @Component({
   selector: 'app-bowler-detail',
   templateUrl: './bowler-detail.component.html',
-  styleUrls: ['./bowler-detail.component.css']
+  styleUrls: ['./bowler-detail.component.scss']
 })
 export class BowlerDetailComponent implements OnInit {
 

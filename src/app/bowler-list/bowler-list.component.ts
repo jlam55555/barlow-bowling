@@ -5,7 +5,7 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-bowler-list',
   templateUrl: './bowler-list.component.html',
-  styleUrls: ['./bowler-list.component.css']
+  styleUrls: ['./bowler-list.component.scss']
 })
 export class BowlerListComponent implements OnInit {
 

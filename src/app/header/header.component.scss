@@ -1,0 +1,22 @@
+@import '../imports';
+
+#header {
+  background-color: $blue500;
+  color: white;
+}
+#title {
+  font-size: 3em;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  font-weight: normal;
+}
+#nav {
+  background-color: $blue300;
+  font-size: 2em;
+  
+  .navLink {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.25em 0.5em;
+  }
+}
