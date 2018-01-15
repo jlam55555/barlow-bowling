@@ -8,7 +8,7 @@ import { Crumbs } from './crumbs';
 export class TitleService {
 
   private crumbs: Crumbs[];
-  private changesSubject: BehaviorSubject<Crumbs[]> = new BehaviorSubject<Crumbs[]>;
+  private changesSubject: BehaviorSubject<Crumbs[]> = new BehaviorSubject<Crumbs[]>(null);
   
   // crumb getter
   getCrumbs(): BehaviorSubject<Crumbs[]> {
