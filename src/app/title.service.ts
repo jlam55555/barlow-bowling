@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { of } from 'rxjs/observable/of';
 import { Crumbs } from './crumbs';
 
 @Injectable()
 export class TitleService {
 
-  //private title: string;
-  private crumbs: Crumbs[] = [
-    { path: '/', text: 'Home' }
-  ];
+  private crumbs: Crumbs[];
+  private changesSubject: BehaviorSubject<Crumbs[]> = new BehaviorSubject<Crumbs[]>;
   
-  constructor() {}
-
   // crumb getter
-  getCrumbs(): Observable<Crumbs[]> {
-    return of(this.crumbs);
+  getCrumbs(): BehaviorSubject<Crumbs[]> {
+    return this.changesSubject;
   }
 
   // crumb setter
   setCrumbs(crumbs: Crumbs[]): void {
+    this.changesSubject.next(crumbs);
     this.crumbs = crumbs;
   }
 

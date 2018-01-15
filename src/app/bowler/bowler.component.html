@@ -1,0 +1,19 @@
+<div id="container">
+  <app-header></app-header>
+  <div id="content">
+    <ul id="bowlerList">
+      <li
+        *ngFor='let bowler of bowlers'
+        routerLink='/bowlers/{{bowler.name}}'
+        [ngClass]='{"selected": selectedBowler !== undefined && bowler.name === selectedBowler.name}'>
+        {{bowler.name}}
+      </li>
+    </ul>
+    <div *ngIf='selectedBowler'>
+      {{ selectedBowler.name }}
+    </div>
+    <div *ngIf='!selectedBowler'>
+      Click on a bowler on the left to see their statistics.
+    </div>
+  </div>
+</div>

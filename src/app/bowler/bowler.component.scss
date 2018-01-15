@@ -1,0 +1,37 @@
+@import '../imports';
+
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  ::ng-deep #header {
+    flex-grow: 0;
+  }
+  
+  #content {
+    padding: 0;
+    display: flex;
+    flex-direction: horizontal;
+
+    #bowlerList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-basis: 20em;
+      overflow-y: scroll;
+
+      li {
+        outline: none;
+        width: 100%;
+        padding: 1em;
+        cursor: pointer;
+        border-bottom: 1px solid $bluegrey300;
+        
+        &.selected {
+          background-color: $blue000;
+        }
+      }
+    }
+  }
+}
