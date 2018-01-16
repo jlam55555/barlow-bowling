@@ -15,7 +15,6 @@ export class DataService {
       bowlers[index].dates = Object.keys(bowler.scores);
       
       Object.keys(bowlers[index].scores).forEach(score => {
-        console.log(score, bowlers[index].scores[score]);
         if(bowlers[index].scores[score].length < 3) {
           let remaining = 3-bowlers[index].scores[score].length;
           for(let i = 0; i < remaining; i++) {

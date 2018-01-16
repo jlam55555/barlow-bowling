@@ -23,13 +23,38 @@
       display: relative;
       z-index: 5;
       box-shadow: 0 0 3px 3px $bluegrey300;
+      transition: flex-basis 0.5s, box-shadow 0.5s;
+      
+      &.closed {
+        flex-basis: 0em;
+        box-shadow: 0 0 0 0 transparent;
+        
+        #closeButton {
+          left: 0;
+        }
+      }
 
+      #closeButton {
+        background-color: white;
+        position: absolute;
+        left: 20em;
+        top: 12em;
+        z-index: 6;
+        transition: left 0.5s;
+        border-top: 1px solid $bluegrey300;
+        border-right: 1px solid $bluegrey300;
+        border-bottom: 1px solid $bluegrey300;
+        padding: 0.5em;
+        outline: none;
+      }
+      
       li {
         outline: none;
         width: 100%;
         padding: 1em;
         cursor: pointer;
         border-bottom: 1px solid $blue100;
+        white-space: nowrap;
         
         &.selected {
           background-color: $blue100;
@@ -38,7 +63,7 @@
     }
     
     .bowlerDetails {
-      padding: 1em;
+      padding: 1em 1em 1em 2em;
       flex-grow: 1;
       
       #scoreTable {
@@ -48,8 +73,6 @@
 
         tbody {
           tr {
-//            border-bottom: 1px solid $bluegrey300;
-
             &:nth-child(2n + 1) {
               background-color: $blue000;
             }

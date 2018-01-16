@@ -43,4 +43,10 @@ export class BowlerComponent implements OnInit {
     });
   }
 
+  // whether or not the menu is closed
+  public closed: boolean = false;
+  public toggleClosed(): void {
+    this.closed = !this.closed;
+  }
+
 }
