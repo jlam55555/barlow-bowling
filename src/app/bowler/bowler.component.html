@@ -9,10 +9,30 @@
         {{bowler.name}}
       </li>
     </ul>
-    <div *ngIf='selectedBowler'>
-      {{ selectedBowler.name }}
+    <div *ngIf='selectedBowler' class='bowlerDetails'>
+      <h1>{{selectedBowler.name}}</h1>
+      <p>Grade: {{selectedBowler.grade}}</p>
+      <table id="scoreTable">
+        <thead>
+          <tr>
+            <th rowspan='2'>Date</th>
+            <th colspan='3'>Scores</th>
+          </tr>
+          <tr>
+            <th>Game 1</th>
+            <th>Game 2</th>
+            <th>Game 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let date of selectedBowler.dates'>
+            <td>{{date}}</td>
+            <td *ngFor='let score of selectedBowler.scores[date]'>{{score}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div *ngIf='!selectedBowler'>
+    <div *ngIf='!selectedBowler' class='bowlerDetails'>
       Click on a bowler on the left to see their statistics.
     </div>
   </div>

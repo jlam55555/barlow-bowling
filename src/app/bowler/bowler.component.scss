@@ -20,18 +20,42 @@
       margin: 0;
       flex-basis: 20em;
       overflow-y: scroll;
+      display: relative;
+      z-index: 5;
+      box-shadow: 0 0 3px 3px $bluegrey300;
 
       li {
         outline: none;
         width: 100%;
         padding: 1em;
         cursor: pointer;
-        border-bottom: 1px solid $bluegrey300;
+        border-bottom: 1px solid $blue100;
         
         &.selected {
-          background-color: $blue000;
+          background-color: $blue100;
         }
       }
+    }
+    
+    .bowlerDetails {
+      padding: 1em;
+      flex-grow: 1;
+      
+      #scoreTable {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+
+        tbody {
+          tr {
+//            border-bottom: 1px solid $bluegrey300;
+
+            &:nth-child(2n + 1) {
+              background-color: $blue000;
+            }
+          }
+        }
+      } 
     }
   }
 }

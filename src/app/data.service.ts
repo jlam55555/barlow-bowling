@@ -10,6 +10,20 @@ export class DataService {
     bowlers.sort((bowler1, bowler2) => 
       bowler1.name.split(' ').slice(-1)[0].localeCompare(bowler2.name.split(' ').slice(-1)[0])
     );
+    
+    bowlers.forEach((bowler, index, array) => {
+      bowlers[index].dates = Object.keys(bowler.scores);
+      
+      Object.keys(bowlers[index].scores).forEach(score => {
+        console.log(score, bowlers[index].scores[score]);
+        if(bowlers[index].scores[score].length < 3) {
+          let remaining = 3-bowlers[index].scores[score].length;
+          for(let i = 0; i < remaining; i++) {
+            bowlers[index].scores[score].push('');
+          }
+        }
+      });
+    });
   }
   
   // return a list of bowlers

@@ -3,6 +3,9 @@
 #header {
   background-color: $blue500;
   color: white;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0 3px 3px $bluegrey300;
 }
 #title {
   font-size: 2em;
