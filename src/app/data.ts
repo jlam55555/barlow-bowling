@@ -183,7 +183,7 @@ export default [
     "name": "Stephanie Ballas",
     "grade": 11,
     "scores": {
-      "12/12/2017": [84, 74, 87];
+      "12/12/2017": [84, 74, 87]
     },
     dates: []
   }
