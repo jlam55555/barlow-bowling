@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+/* mobile */
 ::ng-deep * {
   box-sizing: border-box;
   font-family: roboto;
-  font-size: 20px;
   box-sizing: border-box;
+  font-size: 5vw;
+}
+
+/* desktop overrides */
+@media screen and (min-width: 1024px) {
+  ::ng-deep * {
+    font-size: 20px;
+  }
 }

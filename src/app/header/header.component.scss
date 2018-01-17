@@ -8,19 +8,22 @@
   box-shadow: 0 0 3px 3px $bluegrey300;
 }
 #title {
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0;
   padding: 1em;
   font-weight: normal;
 }
 #nav {
   background-color: $blue300;
-  font-size: 1.5em;
+  font-size: 0.75em;
   
   .navLink {
     display: inline-block;
     text-decoration: none;
     padding: 1em;
     background-color: $blue300;
+  }
+  .navLink:nth-child(1) {
+    padding-left: 2em;
   }
 }

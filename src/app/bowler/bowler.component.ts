@@ -53,5 +53,10 @@ export class BowlerComponent implements OnInit {
     this.closed = !this.closed;
     this.cookieService.put('bowlerListClosed', this.closed.toString());
   }
+  public closeIfMobile(): void {
+    if(!closed && window.screen.width <= 1024) {
+       this.toggleClosed();
+    }
+  }
 
 }

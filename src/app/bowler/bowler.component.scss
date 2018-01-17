@@ -1,5 +1,6 @@
 @import '../imports';
 
+/* mobile styles */
 #container {
   display: flex;
   flex-direction: column;
@@ -12,13 +13,14 @@
   #content {
     padding: 0;
     display: flex;
+    overflow: hidden;
     flex-direction: horizontal;
 
     #bowlerList {
       list-style: none;
       padding: 0;
       margin: 0;
-      flex-basis: 20em;
+      flex: 0 0 100%;
       overflow-y: scroll;
       display: relative;
       z-index: 5;
@@ -26,7 +28,7 @@
       transition: flex-basis 0.5s, box-shadow 0.5s;
       
       &.closed {
-        flex-basis: 0em;
+        flex-basis: 0 !important;
         box-shadow: 0 0 0 0 transparent;
         
         #closeButton {
@@ -37,7 +39,7 @@
       #closeButton {
         background-color: white;
         position: absolute;
-        left: 20em;
+        right: 0;
         top: 12em;
         z-index: 6;
         transition: left 0.5s;
@@ -64,7 +66,7 @@
     
     .bowlerDetails {
       padding: 1em 1em 1em 2em;
-      flex-grow: 1;
+      flex: 1 1 0;
       
       #scoreTable {
         width: 100%;
@@ -80,5 +82,13 @@
         }
       } 
     }
+  }
+}
+@media screen and (min-width: 1024px) {
+  #bowlerList {
+    flex: 0 0 20em !important;
+  }
+  #closeButton {
+    left: 20em;
   }
 }

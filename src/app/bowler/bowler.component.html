@@ -6,7 +6,8 @@
       <li
         *ngFor='let bowler of bowlers'
         routerLink='/bowlers/{{bowler.name}}'
-        [ngClass]='{"selected": selectedBowler !== undefined && bowler.name === selectedBowler.name}'>
+        [ngClass]='{"selected": selectedBowler !== undefined && bowler.name === selectedBowler.name}'
+        (click)='closeIfMobile()'>
         {{bowler.name}}
       </li>
     </ul>
