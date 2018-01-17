@@ -3,6 +3,7 @@ import { Bowler } from '../bowler';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { TitleService } from '../title.service';
+import { CookieService } from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-bowler',
@@ -17,8 +18,9 @@ export class BowlerComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private titleService: TitleService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private cookieService: CookieService
+  ) {}
 
   ngOnInit() {
     this.bowlers = this.dataService.getBowlers();
@@ -41,12 +43,15 @@ export class BowlerComponent implements OnInit {
         ]); 
       }
     });
+
+    this.closed = this.cookieService.get('bowlerListClosed') === 'true';
   }
 
   // whether or not the menu is closed
-  public closed: boolean = false;
+  public closed: boolean;
   public toggleClosed(): void {
     this.closed = !this.closed;
+    this.cookieService.put('bowlerListClosed', this.closed.toString());
   }
 
 }
