@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+//import { CookieService } from 'angular2-cookie/services/cookies.service';
+//import { CookieOptions } from 'angular2-cookie'
+import { CookieService, CookieOptions } from 'angular2-cookie/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,7 +28,8 @@ import { TitleService } from './title.service'
   providers: [
     DataService,
     TitleService,
-    CookieService
+    CookieService,
+    { provide: CookieOptions, useValue: {} }
   ],
   bootstrap: [AppComponent]
 })

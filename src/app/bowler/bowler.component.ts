@@ -44,7 +44,7 @@ export class BowlerComponent implements OnInit {
       }
     });
 
-    this.closed = this.cookieService.get('bowlerListClosed') === 'true';
+    this.closed = window.screen.width < 1024 && this.cookieService.get('bowlerListClosed') === 'true';
   }
 
   // whether or not the menu is closed
