@@ -9,7 +9,7 @@ import { Crumbs } from '../crumbs';
 })
 export class HeaderComponent implements OnInit {
 
-  public websiteTitle:string = "JBHS CIBL Team 2017-2018";
+  public websiteTitle:string = "Barlow Bowling";
   public crumbs:Crumbs[];
   
   constructor(private titleService: TitleService) {}

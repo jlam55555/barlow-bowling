@@ -8,9 +8,31 @@
   font-size: 5vw;
 }
 
+/* no select courtesy of https://stackoverflow.com/a/4407335/2397327 */
+::ng-deep .noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+::ng-deep .desktop {
+  display: none;
+}
+
 /* desktop overrides */
 @media screen and (min-width: 1024px) {
   ::ng-deep * {
     font-size: 20px;
+  }
+  
+  ::ng-deep .mobile {
+    display: none;
+  }
+  ::ng-deep .desktop {
+    display: initial;
   }
 }

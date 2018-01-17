@@ -1,5 +1,5 @@
 <div id="header">
-  <h1 id='title'>{{websiteTitle}}</h1>
+  <h1 id='title' class='noSelect'>{{websiteTitle}}</h1>
   <nav id='nav'>
     <a *ngFor='let crumb of crumbs' routerLink='{{crumb.path}}' class='navLink'>{{crumb.text}}</a>
   </nav>

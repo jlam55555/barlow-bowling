@@ -16,14 +16,27 @@
 #nav {
   background-color: $blue300;
   font-size: 0.75em;
+  display: flex;
+  flex-direction: horizontal;
   
   .navLink {
     display: inline-block;
     text-decoration: none;
     padding: 1em;
     background-color: $blue300;
+    flex: 0 0 auto;
   }
   .navLink:nth-child(1) {
     padding-left: 2em;
+    background-color: $blue200;
+  }
+  .navLink:nth-child(2) {
+    padding-left: $blue300;
+  }
+  .navLink:nth-child(3) {
+    background-color: $blue400;
+  }
+  .navLink:last-child {
+    flex-grow: 1;
   }
 }

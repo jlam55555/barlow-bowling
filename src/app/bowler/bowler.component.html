@@ -2,11 +2,12 @@
   <app-header></app-header>
   <div id="content">
     <ul id="bowlerList" [ngClass]='{"closed": closed}'>
-      <button id='closeButton' (click)='toggleClosed()'>{{closed?'>':'X'}}</button>
+      <button id='closeButton' (click)='toggleClosed()' class='desktop'>{{closed?'>':'X'}}</button>
       <li
         *ngFor='let bowler of bowlers'
         routerLink='/bowlers/{{bowler.name}}'
         [ngClass]='{"selected": selectedBowler !== undefined && bowler.name === selectedBowler.name}'
+        class='noSelect'
         (click)='closeIfMobile()'>
         {{bowler.name}}
       </li>
@@ -33,9 +34,11 @@
           </tr>
         </tbody>
       </table>
+      <div class='openMenu mobile' (click)='toggleClosed()'>Return to list of bowlers.</div>
     </div>
     <div *ngIf='!selectedBowler' class='bowlerDetails'>
       Click on a bowler on the left to see their statistics.
+      <div class='openMenu mobile' (click)='toggleClosed()'>Return to list of bowlers.</div>
     </div>
   </div>
 </div>

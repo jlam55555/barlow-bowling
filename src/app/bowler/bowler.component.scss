@@ -39,7 +39,7 @@
       #closeButton {
         background-color: white;
         position: absolute;
-        right: 0;
+        left: 20em;
         top: 12em;
         z-index: 6;
         transition: left 0.5s;
@@ -68,6 +68,13 @@
       padding: 1em 1em 1em 2em;
       flex: 1 1 0;
       
+      .openMenu {
+        font-size: smaller;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-top: 2em;
+      }
+      
       #scoreTable {
         width: 100%;
         border-collapse: collapse;
@@ -87,8 +94,5 @@
 @media screen and (min-width: 1024px) {
   #bowlerList {
     flex: 0 0 20em !important;
-  }
-  #closeButton {
-    left: 20em;
   }
 }
