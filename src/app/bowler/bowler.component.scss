@@ -65,7 +65,7 @@
     }
     
     .bowlerDetails {
-      padding: 1em 1em 1em 2em;
+      padding: 1em 2em;
       flex: 1 1 0;
       
       .openMenu {
@@ -80,6 +80,10 @@
         border-collapse: collapse;
         text-align: center;
 
+        th, td {
+          padding: 0.5em 0;
+        }
+        
         tbody {
           tr {
             &:nth-child(2n + 1) {

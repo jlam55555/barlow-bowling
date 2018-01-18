@@ -18,22 +18,24 @@
       <table id="scoreTable">
         <thead>
           <tr>
-            <th rowspan='2'>Date</th>
-            <th colspan='3'>Scores</th>
-          </tr>
-          <tr>
+            <th>Date</th>
             <th>Game 1</th>
             <th>Game 2</th>
             <th>Game 3</th>
+            <th>Average</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor='let date of selectedBowler.dates'>
             <td>{{date}}</td>
             <td *ngFor='let score of selectedBowler.scores[date]'>{{score}}</td>
+            <td>{{selectedBowler.scores[date] | average:2}}</td>
           </tr>
         </tbody>
       </table>
+      <div>
+<!--        <canvas #scoresChart></canvas>-->
+      </div>
       <div class='openMenu mobile' (click)='toggleClosed()'>Return to list of bowlers.</div>
     </div>
     <div *ngIf='!selectedBowler' class='bowlerDetails'>

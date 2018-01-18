@@ -11,7 +11,8 @@ import { AboutComponent } from './about/about.component';
 import { AppRouterModule } from './app-router/app-router.module';
 
 import { DataService } from './data.service';
-import { TitleService } from './title.service'
+import { TitleService } from './title.service';
+import { AveragePipe } from './average.pipe'
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TitleService } from './title.service'
     AppComponent,
     HeaderComponent,
     BowlerComponent,
-    AboutComponent
+    AboutComponent,
+    AveragePipe
   ],
   imports: [
     BrowserModule,
