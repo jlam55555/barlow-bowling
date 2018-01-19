@@ -12,7 +12,8 @@ import { AppRouterModule } from './app-router/app-router.module';
 
 import { DataService } from './data.service';
 import { TitleService } from './title.service';
-import { AveragePipe } from './average.pipe'
+import { AveragePipe } from './average.pipe';
+import { GalleryComponent } from './gallery/gallery.component'
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AveragePipe } from './average.pipe'
     HeaderComponent,
     BowlerComponent,
     AboutComponent,
-    AveragePipe
+    AveragePipe,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
