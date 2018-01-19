@@ -66,6 +66,7 @@
     .bowlerDetails {
       padding: 1em;
       flex: 1 1 0;
+      overflow-y: auto;
       
       .openMenu {
         font-size: smaller;

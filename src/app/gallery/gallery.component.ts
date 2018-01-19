@@ -21,6 +21,11 @@ export class GalleryComponent implements OnInit {
 
   selectImage(image: Object) {
     this.selectedImage = image;
+    
+    // close imageList if on mobile
+    if(window.screen.width < 1024) {
+      this.toggleList();
+    }
   }
 
   changeImage(image: Object, previous: boolean = true) {
@@ -36,6 +41,11 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  public listClosed = true;
+  public toggleList(): void {
+    this.listClosed = !this.listClosed;
   }
 
 }

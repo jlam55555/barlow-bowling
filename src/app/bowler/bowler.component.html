@@ -38,7 +38,7 @@
       <div>
 <!--        <canvas #scoresChart></canvas>-->
       </div>
-      <div class='openMenu mobile' (click)='toggleClosed()'>Return to list of bowlers.</div>
+      <a class='openMenu mobile' (click)='toggleClosed()' routerLink='../'>Return to list of bowlers.</a>
     </div>
     <div *ngIf='!selectedBowler' class='bowlerDetails'>
       Click on a bowler on the left to see their statistics.

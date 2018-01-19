@@ -24,6 +24,7 @@ export class BowlerComponent implements OnInit {
 
   public bowlers: Bowler[];
   public selectedBowler: Bowler;
+  public closed: boolean = true;
   
   @ViewChild('scoresChart') scoresChart: ElementRef;
 
@@ -49,18 +50,31 @@ export class BowlerComponent implements OnInit {
           { path: '/bowlers', text: '<i class="fas fa-users"></i> Bowlers' },
           { path: `/bowlers/${this.selectedBowler.name}`, text: '<i class="fas fa-user"></i> ' + this.selectedBowler.name }
         ]);
+        
         // update scores chart
         this.updateChart();
+        
+        // if list open on mobile close it
+        if(!this.closed && window.screen.width < 1024) {
+          this.toggleClosed();
+        }
       } else {
         this.titleService.setCrumbs([
           { path: '/', text: '<i class="fas fa-home"></i> Home' },
           { path: '/bowlers', text: '<i class="fas fa-users"></i> Bowlers' }
         ]); 
+        
+        // if list closed on mobile open it
+        if(this.closed && window.screen.width < 1024) {
+          this.toggleClosed();
+        }
       }
     });
 
-    // set menu closed if cookie and if mobile
-    this.closed = window.screen.width < 1024 && this.cookieService.get('bowlerListClosed') === 'true';
+    // set menu if not on mobile
+    if(window.screen.width >= 1024) {
+      this.closed = this.cookieService.get('bowlerListClosed') === 'true';
+    }
   }
 
   /* update scores chart on load */
@@ -96,7 +110,6 @@ export class BowlerComponent implements OnInit {
   } 
 
   // whether or not the menu is closed
-  public closed: boolean;
   public toggleClosed(): void {
     this.closed = !this.closed;
     this.cookieService.put('bowlerListClosed', this.closed.toString());

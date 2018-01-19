@@ -1,6 +1,6 @@
 <div id="content">
   <app-header></app-header>
-  <div id='selectedImage' *ngIf='selectedImage'>
+  <div id='selectedImage' *ngIf='selectedImage' [ngClass]='{"closed": !listClosed}'>
     <div id='selectedImageDescription'>{{selectedImage.description}}</div>
     <div id='imageDisplay'>
       <div id='lastImage' class='imageControls noSelect' (click)='changeImage(selectedImage)'>
@@ -12,7 +12,17 @@
       <img src='assets/images/{{selectedImage.path}}'>
     </div>
   </div>
-  <div id='imageList'>
+  <div id='imageList' [ngClass]='{"closed": listClosed}'>
+    <div id='toggleClosed' (click)='toggleList()'>
+      <div *ngIf='listClosed'>
+        <i class='fa fa-chevron-up'></i>
+        <span>Show all images</span>
+      </div>
+      <div *ngIf='!listClosed'>
+        <i class='fa fa-chevron-down'></i>
+        <span>Hide images</span>
+      </div>
+    </div>
     <div
       class='imageListImage noSelect'
       *ngFor='let image of images'
