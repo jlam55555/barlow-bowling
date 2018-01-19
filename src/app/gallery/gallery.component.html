@@ -1,6 +1,6 @@
 <div id="content">
   <app-header></app-header>
-  <div id='selectedImage'>
+  <div id='selectedImage' *ngIf='selectedImage'>
     <div id='selectedImageDescription'>{{selectedImage.description}}</div>
     <div id='imageDisplay'>
       <div id='lastImage' class='imageControls noSelect' (click)='changeImage(selectedImage)'>
