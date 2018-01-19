@@ -2,7 +2,9 @@
   <app-header></app-header>
   <div id="content">
     <ul id="bowlerList" [ngClass]='{"closed": closed}'>
-      <button id='closeButton' (click)='toggleClosed()' class='desktop'>{{closed?'>':'X'}}</button>
+      <button id='closeButton' (click)='toggleClosed()' class='desktop'>
+        <i class='fas fa-bars'></i>
+      </button>
       <li
         *ngFor='let bowler of bowlers'
         routerLink='/bowlers/{{bowler.name}}'

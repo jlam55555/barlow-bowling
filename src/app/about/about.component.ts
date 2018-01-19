@@ -12,7 +12,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setCrumbs([
-      { path: '/', text: 'Home' }
+      { path: '/', text: '<i class="fas fa-home"></i> Home' }
     ]);
   }
 

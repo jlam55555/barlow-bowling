@@ -3,8 +3,12 @@
   <div id='selectedImage'>
     <div id='selectedImageDescription'>{{selectedImage.description}}</div>
     <div id='imageDisplay'>
-      <div id='lastImage' class='imageControls noSelect' (click)='changeImage(selectedImage)'>Previous</div>
-      <div id='nextImage' class='imageControls noSelect' (click)='changeImage(selectedImage, false)'>Next</div>
+      <div id='lastImage' class='imageControls noSelect' (click)='changeImage(selectedImage)'>
+        <i class='fas fa-chevron-left'></i>
+      </div>
+      <div id='nextImage' class='imageControls noSelect' (click)='changeImage(selectedImage, false)'>
+        <i class='fas fa-chevron-right'></i>
+      </div>
       <img src='assets/images/{{selectedImage.path}}'>
     </div>
   </div>
@@ -14,6 +18,10 @@
       *ngFor='let image of images'
       (click)='selectImage(image)'
       [style.backgroundImage]='"url(assets/images/" + image.path + ")"'
-      [title]='image.description'></div>
+      [title]='image.description'>
+      <div class='overlay'>
+        <i class='fas fa-arrow-up'></i>
+      </div>
+    </div>
   </div>
-</div>  
+</div>

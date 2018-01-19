@@ -37,17 +37,16 @@
       }
 
       #closeButton {
-        background-color: white;
+        background-color: $blue300;
         position: absolute;
         left: 20em;
-        top: 12em;
+        top: 8em;
         z-index: 6;
         transition: left 0.5s;
-        border-top: 1px solid $bluegrey300;
-        border-right: 1px solid $bluegrey300;
-        border-bottom: 1px solid $bluegrey300;
         padding: 0.5em;
         outline: none;
+        border: none;
+        cursor: pointer;
       }
       
       li {
@@ -65,7 +64,7 @@
     }
     
     .bowlerDetails {
-      padding: 1em 2em;
+      padding: 1em;
       flex: 1 1 0;
       
       .openMenu {
@@ -98,5 +97,8 @@
 @media screen and (min-width: 1024px) {
   #bowlerList {
     flex: 0 0 20em !important;
+  }
+  .bowlerDetails {
+    padding: 1em 5em !important;
   }
 }

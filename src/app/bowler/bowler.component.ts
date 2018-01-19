@@ -39,28 +39,22 @@ export class BowlerComponent implements OnInit {
     // get list of bowlers
     this.bowlers = this.dataService.getBowlers();
     
-    // set title
-    this.titleService.setCrumbs([
-      { path: '/', text: 'Home' },
-      { path: '/bowlers', text: 'Bowlers' }
-    ]);
-    
     // on route change
     this.route.params.subscribe(params => {
       this.selectedBowler = this.dataService.getBowler(params['bowler']);
       if(this.selectedBowler) {
         // update crumbs
         this.titleService.setCrumbs([
-          { path: '/', text: 'Home' },
-          { path: '/bowlers', text: 'Bowlers' },
-          { path: `/bowlers/${this.selectedBowler.name}`, text: this.selectedBowler.name }
+          { path: '/', text: '<i class="fas fa-home"></i> Home' },
+          { path: '/bowlers', text: '<i class="fas fa-users"></i> Bowlers' },
+          { path: `/bowlers/${this.selectedBowler.name}`, text: '<i class="fas fa-user"></i> ' + this.selectedBowler.name }
         ]);
         // update scores chart
         this.updateChart();
       } else {
         this.titleService.setCrumbs([
-          { path: '/', text: 'Home' },
-          { path: '/bowlers', text: 'Bowlers' }
+          { path: '/', text: '<i class="fas fa-home"></i> Home' },
+          { path: '/bowlers', text: '<i class="fas fa-users"></i> Bowlers' }
         ]); 
       }
     });

@@ -14,8 +14,8 @@ export class GalleryComponent implements OnInit {
   
   constructor(private titleService: TitleService) {
     titleService.setCrumbs([
-      { path: '', text: 'Home' },
-      { path: 'gallery', text: 'Gallery' }
+      { path: '', text: '<i class="fas fa-home"></i> Home' },
+      { path: 'gallery', text: '<i class="fas fa-images"></i> Gallery' }
     ]);
   }
 
