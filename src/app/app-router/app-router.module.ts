@@ -11,8 +11,8 @@ import { ContactComponent } from '../about/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'bowlers/:bowler', component: BowlerComponent },
   { path: 'bowlers', component: BowlerComponent },
+  { path: 'bowlers/:bowler', component: BowlerComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'about', component: AboutComponent },
   { path: 'about/team', component: TeamComponent },

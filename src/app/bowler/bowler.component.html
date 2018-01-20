@@ -65,6 +65,9 @@
       </div>
     </div>
     <div *ngIf='!selectedBowler' class='bowlerDetailsContainer'>
+      <p>
+        <a class='openMenu mobile' (click)='toggleClosed()'>View list of bowlers.</a>
+      </p>
       <div id='bowlerDetails'>
         <h1>Team</h1>
         
@@ -74,7 +77,9 @@
           <canvas #teamVarsityChart id='teamVarsityChart' height='400'></canvas>
         </div>
       </div>
-      <a class='openMenu mobile' (click)='toggleClosed()'>Return to list of bowlers.</a>
+      <p>
+        <a class='openMenu mobile' (click)='toggleClosed()'>View list of bowlers.</a>
+      </p>
     </div>
   </div>
 </div>

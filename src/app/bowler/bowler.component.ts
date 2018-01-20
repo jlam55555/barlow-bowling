@@ -58,7 +58,6 @@ export class BowlerComponent implements OnInit {
     
     // on route change
     this.route.params.subscribe(params => {
-      console.log('updated', params['bowler']);
       
       this.selectedBowler = this.dataService.getBowler(params['bowler']);
       if(this.selectedBowler) {
