@@ -3,4 +3,6 @@ export interface Bowler {
   grade: number;
   scores: Object;
   dates: string[];
+  average?: number;
+  varsityScore?: number;
 }

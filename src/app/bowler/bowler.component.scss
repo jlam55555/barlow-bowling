@@ -71,12 +71,26 @@
       #bowlerDetails {
         max-width: 50em;
         margin: 0 auto;
-
+        
         .openMenu {
           font-size: smaller;
           text-decoration: underline;
           cursor: pointer;
           margin-top: 2em;
+        }
+        
+        #bowlerStatisticsTable {
+          tr {
+            display: flex;
+            
+            th {
+              flex: 1 1 0;
+            }
+            
+            td {
+              flex: 3 0 0;
+            }
+          }
         }
 
         #scoreTable {
@@ -98,7 +112,8 @@
         }
 
         #scoresChart {
-          width: 100%;
+          width: 100% !important;
+          margin-top: 2em;
         }
       }
     }
@@ -108,7 +123,7 @@
   #bowlerList {
     flex: 0 0 20em !important;
   }
-  .bowlerDetails {
+  #bowlerDetails {
     padding: 1em 5em !important;
   }
 }

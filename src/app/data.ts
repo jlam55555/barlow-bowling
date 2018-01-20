@@ -1,6 +1,6 @@
 export default [
   {
-    "name": "Catarina Concalves",
+    "name": "Catarina Goncalves",
     "grade": 12,
     "scores": {
       "11/28/2017": [129, 118],
