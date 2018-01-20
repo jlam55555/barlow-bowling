@@ -1,64 +1,75 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
 @import './imports';
 
 /* mobile and general */
-::ng-deep * {
-  box-sizing: border-box;
-  font-family: roboto;
-  box-sizing: border-box;
-  font-size: 5vw;
-}
-::ng-deep a {
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-}
-::ng-deep img {
-  max-width: 100%;
-}
-::ng-deep table {
-  border-collapse: collapse;
-  
-  td, th {
-    padding: 0.5em;
+::ng-deep {
+  * {
+    box-sizing: border-box;
+    font-family: roboto;
+    box-sizing: border-box;
+    font-size: 5vw;
+    line-height: 1.5em;
   }
-  
-  tbody {
-    tr:nth-child(2n+1) {
-      background-color: $blue000;
+  a {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  hr {
+    margin: 3em 0;
+    border: none;
+    background-color: $bluegrey300;
+    height: 1px;
+  }
+  img {
+    max-width: 100%;
+  }
+  li {
+    line-height: 2em;
+  }
+  table {
+    border-collapse: collapse;
+
+    td, th {
+      padding: 0.5em;
+    }
+
+    tbody {
+      tr:nth-child(2n+1) {
+        background-color: $blue000;
+      }
     }
   }
-}
-::ng-deep #content {
-  padding: 1em;
-}
-::ng-deep .desktop {
-  display: none;
-}
-
-/* no select courtesy of https://stackoverflow.com/a/4407335/2397327 */
-::ng-deep .noSelect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-
-/* desktop overrides */
-@media screen and (min-width: 1024px) {
-  ::ng-deep * {
-    font-size: 20px;
+  #content {
+    padding: 1em;
   }
-  ::ng-deep #content {
-    padding: 1em 2em;
-  }
-  ::ng-deep .mobile {
+  .desktop {
     display: none;
   }
-  ::ng-deep .desktop {
-    display: initial;
+  /* no select courtesy of https://stackoverflow.com/a/4407335/2397327 */
+  .noSelect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
+  
+  /* desktop overrides */
+  @media screen and (min-width: 1024px) {
+    * {
+      font-size: 20px;
+    }
+    #content {
+      padding: 1em 2em;
+    }
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: initial;
+    }
   }
 }

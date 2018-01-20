@@ -32,6 +32,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      background-color: $black;
       
       .imageControls {
         position: absolute;
@@ -100,6 +101,8 @@
       top: 0;
       left: 0;
       cursor: pointer;
+      color: $white;
+      font-weight: bold;
     }
     
     .imageListImage {
