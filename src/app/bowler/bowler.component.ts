@@ -86,27 +86,73 @@ export class BowlerComponent implements OnInit {
     // only update if bowlers pane is open
     if(!this.scoresChart) return;
     
-    let scoresCtx = this.scoresChart.nativeElement.getContext('2d');
-    var data = {
-      labels: ["Value A","Value B"],
-      datasets: [{
-        "data": [101342, 55342], // Example data
-        "backgroundColor": ["#1fc8f8", "#76a346"]
-      }]
+    // game data
+    let firstGames = Object.keys(this.selectedBowler.scores).map(date => this.selectedBowler.scores[date][0]);
+    let secondGames = Object.keys(this.selectedBowler.scores).map(date => this.selectedBowler.scores[date][1] || null);
+    let thirdGames = Object.keys(this.selectedBowler.scores).map(date => this.selectedBowler.scores[date][2] || null);
+    let gameAverages = Object.keys(this.selectedBowler.scores).map(date => {
+      let scores = this.selectedBowler.scores[date];
+      let sum = scores.reduce((accumulator, score) => score + accumulator);
+      return Number(sum / scores.length).toFixed(2);
+    });
+    
+    // datasets
+    let dataset = {
+      label: 'Game1',
+      backgroundColor: 'white',
+      lineTension: 0.1,
+      showLine: false,
+      fill: false
     };
-    var chart = new Chart(
-      scoresCtx, {
-        "type": 'doughnut',
-        "data": data,
-        "options": {
-          "cutoutPercentage": 50,
-          "animation": {
-            "animateScale": true,
-            "animateRotate": false
-          }
+    let datasets = [
+      Object.assign({}, dataset, {
+        label: 'Game 1', data: firstGames, borderColor: 'red'
+      }),
+      Object.assign({}, dataset, {
+        label: 'Game 2', data: secondGames, borderColor: 'green'
+      }),
+      Object.assign({}, dataset, {
+        label: 'Game 3', data: thirdGames, borderColor: 'blue'
+      }),
+      Object.assign({}, dataset, {
+        label: 'Average', data: gameAverages, borderColor: 'black', showLine: true
+      })
+    ];
+    
+    
+    let ctx = this.scoresChart.nativeElement.getContext('2d');
+    let config = {
+      type: 'line',
+      data: {
+        labels: this.selectedBowler.dates,
+        datasets: datasets
+      },
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: `${this.selectedBowler.name}'s Scores`
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Date'
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Score'
+            }
+          }]
         }
       }
-    );
+    };
+    let chart = new Chart(ctx, config);
+    
   } 
 
   // whether or not the menu is closed

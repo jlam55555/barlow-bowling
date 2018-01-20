@@ -14,33 +14,35 @@
         {{bowler.name}}
       </li>
     </ul>
-    <div *ngIf='selectedBowler' class='bowlerDetails'>
-      <h1>{{selectedBowler.name}}</h1>
-      <p>Grade: {{selectedBowler.grade}}</p>
-      <table id="scoreTable">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Game 1</th>
-            <th>Game 2</th>
-            <th>Game 3</th>
-            <th>Average</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor='let date of selectedBowler.dates'>
-            <td>{{date}}</td>
-            <td *ngFor='let score of selectedBowler.scores[date]'>{{score}}</td>
-            <td>{{selectedBowler.scores[date] | average:2}}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div>
-<!--        <canvas #scoresChart></canvas>-->
+    <div *ngIf='selectedBowler' class='bowlerDetailsContainer'>
+      <div id='bowlerDetails'>
+        <h1>{{selectedBowler.name}}</h1>
+        <p>Grade: {{selectedBowler.grade}}</p>
+        <table id="scoreTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Game 1</th>
+              <th>Game 2</th>
+              <th>Game 3</th>
+              <th>Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let date of selectedBowler.dates'>
+              <td>{{date}}</td>
+              <td *ngFor='let score of selectedBowler.scores[date]'>{{score}}</td>
+              <td>{{selectedBowler.scores[date] | average:2}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <canvas #scoresChart id='scoresChart'></canvas>
+        </div>
+        <a class='openMenu mobile' (click)='toggleClosed()' routerLink='../'>Return to list of bowlers.</a>
       </div>
-      <a class='openMenu mobile' (click)='toggleClosed()' routerLink='../'>Return to list of bowlers.</a>
     </div>
-    <div *ngIf='!selectedBowler' class='bowlerDetails'>
+    <div *ngIf='!selectedBowler' class='bowlerDetailsContainer'>
       Click on a bowler on the left to see their statistics.
       <div class='openMenu mobile' (click)='toggleClosed()'>Return to list of bowlers.</div>
     </div>

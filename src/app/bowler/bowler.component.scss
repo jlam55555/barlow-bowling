@@ -63,35 +63,44 @@
       }
     }
     
-    .bowlerDetails {
+    .bowlerDetailsContainer {
       padding: 1em;
       flex: 1 1 0;
       overflow-y: auto;
       
-      .openMenu {
-        font-size: smaller;
-        text-decoration: underline;
-        cursor: pointer;
-        margin-top: 2em;
-      }
-      
-      #scoreTable {
-        width: 100%;
-        border-collapse: collapse;
-        text-align: center;
+      #bowlerDetails {
+        max-width: 50em;
+        margin: 0 auto;
 
-        th, td {
-          padding: 0.5em 0;
+        .openMenu {
+          font-size: smaller;
+          text-decoration: underline;
+          cursor: pointer;
+          margin-top: 2em;
         }
-        
-        tbody {
-          tr {
-            &:nth-child(2n + 1) {
-              background-color: $blue000;
+
+        #scoreTable {
+          width: 100%;
+          border-collapse: collapse;
+          text-align: center;
+
+          th, td {
+            padding: 0.5em 0;
+          }
+
+          tbody {
+            tr {
+              &:nth-child(2n + 1) {
+                background-color: $blue000;
+              }
             }
           }
         }
-      } 
+
+        #scoresChart {
+          width: 100%;
+        }
+      }
     }
   }
 }
