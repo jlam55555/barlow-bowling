@@ -13,7 +13,11 @@ import { AppRouterModule } from './app-router/app-router.module';
 import { DataService } from './data.service';
 import { TitleService } from './title.service';
 import { AveragePipe } from './average.pipe';
-import { GalleryComponent } from './gallery/gallery.component'
+import { GalleryComponent } from './gallery/gallery.component';
+import { HomeComponent } from './home/home.component';
+import { TeamComponent } from './about/team/team.component';
+import { LeagueComponent } from './about/league/league.component';
+import { ContactComponent } from './about/contact/contact.component'
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { GalleryComponent } from './gallery/gallery.component'
     BowlerComponent,
     AboutComponent,
     AveragePipe,
-    GalleryComponent
+    GalleryComponent,
+    HomeComponent,
+    TeamComponent,
+    LeagueComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

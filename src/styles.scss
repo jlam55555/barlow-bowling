@@ -1,23 +1,7 @@
-* {
-  box-sizing: border-box;
-}
-a {
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-}
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-}
-#content {
-  padding: 1em;
-}
-
-@media screen and (min-width: 1024px) {
-  #content {
-    padding: 1em 2em;
-  }
+  box-sizing: border-box;
 }

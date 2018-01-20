@@ -12,7 +12,8 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setCrumbs([
-      { path: '/', text: '<i class="fas fa-home"></i> Home' }
+      { path: '/', text: '<i class="fas fa-home"></i> Home' },
+      { path: '/about', text: '<i class="fas fa-info-circle"></i> About' }
     ]);
   }
 
