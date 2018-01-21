@@ -16,11 +16,17 @@ export class HeaderComponent implements OnInit {
 
   public websiteTitle:string = 'Barlow Bowling';
   public crumbs:Crumbs[];
+  public webapp:boolean = false;
   
   constructor(private titleService: TitleService) {}
 
   ngOnInit(): void {
     this.titleService.getCrumbs().subscribe(crumbs => this.crumbs = crumbs);
+    
+    // simple way to check if mobile and in portrait mode
+    if(window.screen.width < 1024 && window.screen.width < window.screen.height) {
+      this.webapp = true;
+    }
   }
 
 }

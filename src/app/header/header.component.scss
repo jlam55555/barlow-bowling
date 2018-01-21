@@ -12,6 +12,10 @@
   margin: 0;
   padding: 1em;
   font-weight: normal;
+  
+  &.webapp {
+    padding-top: calc(4em / 3);
+  }
 }
 #nav {
   background-color: $blue300;
