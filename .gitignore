@@ -34,6 +34,7 @@ jbhsbowling.github.io
 npm-debug.log
 testem.log
 /typings
+todo
 
 # e2e
 /e2e/*.js
