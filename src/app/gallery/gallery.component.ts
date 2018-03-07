@@ -11,7 +11,7 @@ export class GalleryComponent implements OnInit {
 
   public images: Object[] = imageData;
   public selectedImage: Object = imageData[0];
-  
+
   constructor(private titleService: TitleService) {
     titleService.setCrumbs([
       { path: '', text: '<i class="fas fa-home"></i> Home' },
@@ -19,33 +19,8 @@ export class GalleryComponent implements OnInit {
     ]);
   }
 
-  selectImage(image: Object) {
-    this.selectedImage = image;
-    
-    // close imageList if on mobile
-    if(window.screen.width < 1024) {
-      this.toggleList();
-    }
-  }
-
-  changeImage(image: Object, previous: boolean = true) {
-    let index = this.images.indexOf(image);
-    
-    // quick fix for modulus from https://stackoverflow.com/a/4467559/2397327
-    // TODO: don't need this
-    function mod(n, m) {
-      return ((n % m) + m) % m;
-    }
-    
-    this.selectedImage = this.images[mod(index + (previous ? -1 : 1), this.images.length)];
-  }
-
   ngOnInit() {
-  }
-
-  public listClosed = true;
-  public toggleList(): void {
-    this.listClosed = !this.listClosed;
+    
   }
 
 }

@@ -2,175 +2,23 @@
 
 #content {
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  
-  #selectedImage {
-    flex: 1 0 0;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    transition: flex 0.2s;
-    
-    &.closed {
-      flex: 0 0 0;
-    }
-    
-    #selectedImageDescription {
-      flex: 1 0 0;
-      padding: 0.5em;
-      display: flex;
-      align-items: center;
-    }
-    
-    #imageDisplay {
-      position: relative;
-      flex: 3 0 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: $black;
-      
-      .imageControls {
-        position: absolute;
-        height: 100%;
-        width: 50%;
-        top: 0;
-        background-color: $blue300;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.2s;
-        font-size: 3em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: $blue900;
-
-        &#lastImage {
-          left: 0;
-        }
-        &#nextImage {
-          right: 0;
-        }
-      }
-
-      img {
-        max-height: 100%;
-        max-width: 100%;
-        overflow: hidden;
-        display: block;
-        margin: 0 auto;
-      }
-    }
-  }
-  
-  #imageList {
-    flex: 1 0 0;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: horizontal;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    background-color: $blue300;
-    padding: 5em 1em 1em 1em;
-    transition: flex 0.2s, padding 0.2s;
-    position: relative;
-    box-shadow: 0 0 3px 3px $bluegrey300;
-    
-    &.closed {
-      flex: 0 0 2em !important;
-      padding-top: 3em;
-      
-      .imageListImage {
-        display: none;
-      }
-    }
-    
-    #toggleClosed div {
-      height: 4em;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      cursor: pointer;
-      color: $white;
-      font-weight: bold;
-    }
-    
-    .imageListImage {
-      flex: 0 0 5em;
-      height: 5em;
-      cursor: pointer;
-      background-size: cover;
-      border-radius: 0.2em;
-      box-shadow: 0 0 1px 1px $bluegrey300;
-      transition: box-shadow 0.2s;
-      margin: 0.5em;
-      position: relative;
-      
-      .overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: $blue300;
-        color: $white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 5em;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-      
-      &:hover {
-        box-shadow: 0 0 3px 3px $blue300;
-        
-        .overlay {
-          opacity: 0.5;
-        }
-      }
-      
-      &:nth-child(2n+1) {
-        background-color: $blue100;
-      }
-    }
-  }
 }
 
-// desktop adaptations
-@media screen and (min-width: 1024px) {
-  
-  #selectedImage {
-    flex-direction: row !important;
-    
-    &.closed {
-      flex: 1 0 0 !important;
-    }
-    
-    .imageControls {
-      width: 20% !important;
-      
-      &:hover {
-        opacity: 0.5 !important;
-      }
-    }
+.galleryImageContainer {
+  padding: 2em 1em;
+
+  &:nth-child(2n) {
+    background-color: $blue100;
   }
-  
-  #imageList {
-    flex: 1 0 0 !important;
-    justify-content: flex-start !important;
-    
-    .imageListImage {
-      flex-basis: 10em !important;
-      height: 10em !important;
-    }
+
+  .galleryImage {
+    max-height: 15em;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+  .galleryDescription {
+    text-align: center;
+    padding: 1em 0;
   }
 }
