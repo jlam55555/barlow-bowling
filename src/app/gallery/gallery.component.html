@@ -1,8 +1,6 @@
 <a routerLink='/'>Return home.</a>
-<div id='imageList' [ngClass]='{"closed": listClosed}'>
-  <div class='noSelect galleryImageContainer' *ngFor='let image of images'>
-    <img class='galleryImage '[src]='"assets/images/" + image.path'>
-    <div class='galleryDescription'>{{image.description}}</div>
-  </div>
+<div class='noSelect galleryImageContainer' *ngFor='let image of images'>
+  <img class='galleryImage '[src]='"assets/images/" + image.path'>
+  <div class='galleryDescription'>{{image.description}}</div>
 </div>
 <a routerLink='/'>Return home.</a>
