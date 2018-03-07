@@ -1,120 +1,114 @@
 @import '../imports';
 
 /* mobile styles */
-#container {
+#content {
+  width: calc(100% + 4em);
+  height: calc(100% + 1em);
+  margin-left: -2em;
+  margin-top: -1em;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  
-  ::ng-deep #header {
-    flex-grow: 0;
-  }
-  
-  #content {
-    padding: 0;
-    display: flex;
-    overflow: hidden;
-    flex-direction: horizontal;
+  overflow: hidden;
+  flex-direction: horizontal;
 
-    #bowlerList {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      flex: 0 0 100%;
-      overflow-y: scroll;
-      display: relative;
-      z-index: 5;
-      box-shadow: 0 0 3px 3px $bluegrey300;
-      transition: flex-basis 0.5s, box-shadow 0.5s;
-      
-      &.closed {
-        flex-basis: 0 !important;
-        box-shadow: 0 0 0 0 transparent;
-        
-        #closeButton {
-          left: 0;
-        }
-      }
+  #bowlerList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 0 0 100%;
+    overflow-y: scroll;
+    display: relative;
+    z-index: 5;
+    box-shadow: 0 0 3px 3px $bluegrey300;
+    transition: flex-basis 0.5s, box-shadow 0.5s;
+
+    &.closed {
+      flex-basis: 0 !important;
+      box-shadow: 0 0 0 0 transparent;
 
       #closeButton {
-        background-color: $blue300;
-        position: absolute;
-        left: 20em;
-        top: 8em;
-        z-index: 6;
-        transition: left 0.5s;
-        padding: 0.5em;
-        outline: none;
-        border: none;
-        cursor: pointer;
-      }
-      
-      li {
-        outline: none;
-        width: 100%;
-        padding: 1em;
-        cursor: pointer;
-        border-bottom: 1px solid $blue100;
-        white-space: nowrap;
-        
-        &.selected {
-          background-color: $blue100;
-        }
+        left: 0;
       }
     }
-    
-    .bowlerDetailsContainer {
+
+    #closeButton {
+      background-color: $blue300;
+      position: absolute;
+      left: 20em;
+      top: 8em;
+      z-index: 6;
+      transition: left 0.5s;
+      padding: 0.5em;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    li {
+      outline: none;
+      width: 100%;
       padding: 1em;
-      flex: 1 1 0;
-      overflow-y: auto;
-      
-      #bowlerDetails {
-        max-width: 50em;
-        margin: 0 auto;
-        
-        .openMenu {
-          font-size: smaller;
-          text-decoration: underline;
-          cursor: pointer;
-          margin-top: 2em;
+      cursor: pointer;
+      border-bottom: 1px solid $blue100;
+      white-space: nowrap;
+
+      &.selected {
+        background-color: $blue100;
+      }
+    }
+  }
+
+  .bowlerDetailsContainer {
+    padding: 1em;
+    flex: 1 1 0;
+    overflow-y: auto;
+
+    #bowlerDetails {
+      max-width: 50em;
+      margin: 0 auto;
+
+      .openMenu {
+        font-size: smaller;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-top: 2em;
+      }
+
+      #bowlerStatisticsTable {
+        tr {
+          display: flex;
+
+          th {
+            flex: 1 1 0;
+          }
+
+          td {
+            flex: 3 0 0;
+          }
         }
-        
-        #bowlerStatisticsTable {
+      }
+
+      #scoreTable {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+
+        th, td {
+          padding: 0.5em 0;
+        }
+
+        tbody {
           tr {
-            display: flex;
-            
-            th {
-              flex: 1 1 0;
-            }
-            
-            td {
-              flex: 3 0 0;
+            &:nth-child(2n + 1) {
+              background-color: $blue000;
             }
           }
         }
+      }
 
-        #scoreTable {
-          width: 100%;
-          border-collapse: collapse;
-          text-align: center;
-
-          th, td {
-            padding: 0.5em 0;
-          }
-
-          tbody {
-            tr {
-              &:nth-child(2n + 1) {
-                background-color: $blue000;
-              }
-            }
-          }
-        }
-
-        #scoresChart {
-          width: 100% !important;
-          margin-top: 2em;
-        }
+      #scoresChart {
+        width: 100% !important;
+        margin-top: 2em;
       }
     }
   }
