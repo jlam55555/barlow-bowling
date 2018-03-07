@@ -1,85 +1,82 @@
-<div id="container">
-  <app-header></app-header>
-  <div id="content">
-    <ul id="bowlerList" [ngClass]='{"closed": closed}'>
-      <button id='closeButton' (click)='toggleClosed()' class='desktop'>
-        <i class='fas fa-bars'></i>
-      </button>
-      <li
-        routerLink='/bowlers'
-        (click)='closeIfMobile();updateChart()'
-        [ngClass]='{"selected": !selectedBowler}'>Team</li>
-      <li
-        *ngFor='let bowler of bowlers'
-        routerLink='/bowlers/{{bowler.name}}'
-        [ngClass]='{"selected": selectedBowler && bowler.name === selectedBowler.name && !teamBowler}'
-        class='noSelect'
-        (click)='closeIfMobile();updateChart()'>
-        {{bowler.name}}
-      </li>
-    </ul>
-    <div *ngIf='selectedBowler && !teamBowler' class='bowlerDetailsContainer'>
-      <div id='bowlerDetails'>
-        <h1>{{selectedBowler.name}}</h1>
-        <table id='bowlerStatisticsTable'>
-          <tbody>
-            <tr>
-              <th>Grade</th>
-              <td>{{selectedBowler.grade}}</td>
-            </tr>
-            <tr>
-              <th>Average</th>
-              <td>{{selectedBowler.average}}</td>
-            </tr>
-            <tr>
-              <th><a routerLink='/about/team'>Varsity Score</a></th>
-              <td>{{selectedBowler.varsityScore}}</td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <hr>
-        <h3>Scores</h3>
-        <table id="scoreTable">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Game 1</th>
-              <th>Game 2</th>
-              <th>Game 3</th>
-              <th>Average</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor='let date of selectedBowler.dates'>
-              <td>{{date}}</td>
-              <td *ngFor='let score of selectedBowler.scores[date]'>{{score}}</td>
-              <td>{{selectedBowler.scores[date] | average:2}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
-          <canvas #scoresChart id='scoresChart' height='400'></canvas>
-        </div>
-        <a class='openMenu mobile' (click)='toggleClosed()'>Return to list of bowlers.</a>
+<div id="content">
+  <ul id="bowlerList" [ngClass]='{"closed": closed}'>
+    <button id='closeButton' (click)='toggleClosed()' class='desktop'>
+      <i class='fas fa-bars'></i>
+    </button>
+    <li
+      routerLink='/bowlers'
+      (click)='closeIfMobile();updateChart()'
+      [ngClass]='{"selected": !selectedBowler}'>Team</li>
+    <li
+      *ngFor='let bowler of bowlers'
+      routerLink='/bowlers/{{bowler.name}}'
+      [ngClass]='{"selected": selectedBowler && bowler.name === selectedBowler.name && !teamBowler}'
+      class='noSelect'
+      (click)='closeIfMobile();updateChart()'>
+      {{bowler.name}}
+    </li>
+  </ul>
+  <div *ngIf='selectedBowler && !teamBowler' class='bowlerDetailsContainer'>
+    <div id='bowlerDetails'>
+      <h1>{{selectedBowler.name}}</h1>
+      <table id='bowlerStatisticsTable'>
+        <tbody>
+          <tr>
+            <th>Grade</th>
+            <td>{{selectedBowler.grade}}</td>
+          </tr>
+          <tr>
+            <th>Average</th>
+            <td>{{selectedBowler.average}}</td>
+          </tr>
+          <tr>
+            <th><a routerLink='/about/team'>Varsity Score</a></th>
+            <td>{{selectedBowler.varsityScore}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+      <h3>Scores</h3>
+      <table id="scoreTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Game 1</th>
+            <th>Game 2</th>
+            <th>Game 3</th>
+            <th>Average</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let date of selectedBowler.dates'>
+            <td>{{date}}</td>
+            <td *ngFor='let score of selectedBowler.scores[date]'>{{score}}</td>
+            <td>{{selectedBowler.scores[date] | average:2}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <canvas #scoresChart id='scoresChart' height='400'></canvas>
+      </div>
+      <a class='openMenu mobile' (click)='toggleClosed()'>Return to list of bowlers.</a>
+    </div>
+  </div>
+  <div *ngIf='!selectedBowler' class='bowlerDetailsContainer'>
+    <p>
+      <a class='openMenu mobile' (click)='toggleClosed()'>View list of bowlers.</a>
+    </p>
+    <div id='bowlerDetails'>
+      <h1>Team</h1>
+
+      <h3>Team Varsity Fitness Scores</h3>
+      <p>See <a routerLink='/about/team'>About the Team</a> to see how the fitness score is calculated.</p>
+      <div>
+        <canvas #teamVarsityChart id='teamVarsityChart' height='400'></canvas>
       </div>
     </div>
-    <div *ngIf='!selectedBowler' class='bowlerDetailsContainer'>
-      <p>
-        <a class='openMenu mobile' (click)='toggleClosed()'>View list of bowlers.</a>
-      </p>
-      <div id='bowlerDetails'>
-        <h1>Team</h1>
-        
-        <h3>Team Varsity Fitness Scores</h3>
-        <p>See <a routerLink='/about/team'>About the Team</a> to see how the fitness score is calculated.</p>
-        <div>
-          <canvas #teamVarsityChart id='teamVarsityChart' height='400'></canvas>
-        </div>
-      </div>
-      <p>
-        <a class='openMenu mobile' (click)='toggleClosed()'>View list of bowlers.</a>
-      </p>
-    </div>
+    <p>
+      <a class='openMenu mobile' (click)='toggleClosed()'>View list of bowlers.</a>
+    </p>
   </div>
 </div>

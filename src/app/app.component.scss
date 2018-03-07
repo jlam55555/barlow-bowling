@@ -41,6 +41,7 @@
       }
     }
   }
+
   #content {
     padding: 1em;
   }
@@ -57,7 +58,7 @@
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome and Opera */
   }
-  
+
   /* desktop overrides */
   @media screen and (min-width: 1024px) {
     * {

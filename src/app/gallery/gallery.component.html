@@ -1,37 +1,34 @@
-<div id="content">
-  <app-header></app-header>
-  <div id='selectedImage' *ngIf='selectedImage' [ngClass]='{"closed": !listClosed}'>
-    <div id='selectedImageDescription'>{{selectedImage.description}}</div>
-    <div id='imageDisplay'>
-      <div id='lastImage' class='imageControls noSelect' (click)='changeImage(selectedImage)'>
-        <i class='fas fa-chevron-left'></i>
-      </div>
-      <div id='nextImage' class='imageControls noSelect' (click)='changeImage(selectedImage, false)'>
-        <i class='fas fa-chevron-right'></i>
-      </div>
-      <img src='assets/images/{{selectedImage.path}}'>
+<div id='selectedImage' *ngIf='selectedImage' [ngClass]='{"closed": !listClosed}'>
+  <div id='selectedImageDescription'>{{selectedImage.description}}</div>
+  <div id='imageDisplay'>
+    <div id='lastImage' class='imageControls noSelect' (click)='changeImage(selectedImage)'>
+      <i class='fas fa-chevron-left'></i>
+    </div>
+    <div id='nextImage' class='imageControls noSelect' (click)='changeImage(selectedImage, false)'>
+      <i class='fas fa-chevron-right'></i>
+    </div>
+    <img src='assets/images/{{selectedImage.path}}'>
+  </div>
+</div>
+<div id='imageList' [ngClass]='{"closed": listClosed}'>
+  <div id='toggleClosed' (click)='toggleList()'>
+    <div *ngIf='listClosed'>
+      <i class='fa fa-chevron-up'></i>
+      <span>Show all images</span>
+    </div>
+    <div *ngIf='!listClosed'>
+      <i class='fa fa-chevron-down'></i>
+      <span>Hide images</span>
     </div>
   </div>
-  <div id='imageList' [ngClass]='{"closed": listClosed}'>
-    <div id='toggleClosed' (click)='toggleList()'>
-      <div *ngIf='listClosed'>
-        <i class='fa fa-chevron-up'></i>
-        <span>Show all images</span>
-      </div>
-      <div *ngIf='!listClosed'>
-        <i class='fa fa-chevron-down'></i>
-        <span>Hide images</span>
-      </div>
-    </div>
-    <div
-      class='imageListImage noSelect'
-      *ngFor='let image of images'
-      (click)='selectImage(image)'
-      [style.backgroundImage]='"url(assets/images/" + image.path + ")"'
-      [title]='image.description'>
-      <div class='overlay'>
-        <i class='fas fa-arrow-up'></i>
-      </div>
+  <div
+    class='imageListImage noSelect'
+    *ngFor='let image of images'
+    (click)='selectImage(image)'
+    [style.backgroundImage]='"url(assets/images/" + image.path + ")"'
+    [title]='image.description'>
+    <div class='overlay'>
+      <i class='fas fa-arrow-up'></i>
     </div>
   </div>
 </div>
